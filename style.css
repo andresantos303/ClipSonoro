@@ -1,0 +1,189 @@
+/* Reset e variáveis de tema */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #1e2a33;
+  --panel-bg: #24313a;
+  --highlight: #29b6f6;
+  --accent: #ff9800;
+  --text: #eaedef;
+  --text-muted: #a0abb3;
+  --btn-red: #e74c3c;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Painel de Sons */
+.sound-panel {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.sound-panel h2 {
+  flex: 1 1 100%;
+  font-size: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--highlight), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* Ícones de som */
+.sounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.sound-item {
+  width: 80px;
+  height: 80px;
+  background: var(--panel-bg);
+  border-radius: 50%;
+  border: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: .85rem;
+  cursor: grab;
+  transition: all .3s ease;
+}
+.sound-item:hover {
+  border-color: var(--highlight);
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--accent), var(--highlight));
+}
+.sound-item svg {
+  fill: var(--text);
+  margin-bottom: .3rem;
+}
+
+/* Botão + para importar */
+#add-sound-btn {
+  width: 80px; height: 80px;
+  background: var(--panel-bg);
+  border: 3px dashed var(--text-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color .3s ease, color .3s ease;
+}
+#add-sound-btn:hover {
+  border-color: var(--highlight);
+  color: var(--highlight);
+}
+
+/* Container do vídeo/canvas */
+.video-container {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  margin-bottom: 2rem;
+}
+canvas { width: 100%; display: block; }
+
+/* Estado “dragover” para feedback visual */
+.video-container.dragover {
+  outline: 4px dashed var(--highlight);
+  outline-offset: -10px;
+}
+
+/* Painel das tracks */
+.tracks-panel {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+}
+.tracks-panel h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--highlight);
+}
+
+/* Cada track */
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem;
+  border-bottom: 1px solid #32414a;
+}
+.track:last-child { border-bottom: none; }
+
+/* Info e ícone */
+.track-info {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.track-info svg {
+  fill: var(--highlight);
+  width: 28px; height: 28px;
+}
+.track-info span {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Sliders */
+.sliders {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.sliders label {
+  display: flex;
+  flex-direction: column;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+.sliders input {
+  margin-top: .25rem;
+  cursor: pointer;
+}
+
+/* Botão remover */
+.remove-btn {
+  background: var(--btn-red);
+  color: #fff;
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+.remove-btn:hover {
+  background: #c0392b;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sound-panel h2 { font-size: 1.5rem; }
+  .sound-item, #add-sound-btn { width: 60px; height: 60px; }
+  .track { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .sliders { flex-direction: column; align-items: flex-start; }
+}

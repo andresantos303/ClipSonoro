@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soundwaves</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sound-panel">
+    <h2>Apply Sounds to this video</h2>
+    <div id="sound-list" class="sounds"></div>
+    <button id="add-sound-btn">+</button>
+    <input type="file" id="add-sound-input" accept="audio/*" style="display:none">
+  </div>
+
+  <div id="video-container" class="video-container">
+    <canvas id="video-canvas"></canvas>
+    <video id="video-element" muted style="display:none"></video>
+  </div>
+
+  <div class="tracks-panel">
+    <h3>Tracks</h3>
+    <div id="tracks"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
