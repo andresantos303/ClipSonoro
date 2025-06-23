@@ -3,17 +3,17 @@ const groups = [
   {
     videoSrc: 'videos/video1.mov',
     sounds: [
-      { name: 'Waves', src: 'sounds/beat1.mp3' },
-      { name: 'Birds',  src: 'sounds/clap.mp3'      },
-      { name: 'Wind',  src: 'sounds/kick.mp3'      }
+      { name: 'Waves', src: 'sounds/waves.wav'},
+      { name: 'Birds',  src: 'sounds/birds.wav'},
+      { name: 'Wind',  src: 'sounds/windSea.wav'}
     ]
   },
   {
     videoSrc: 'videos/video2.mp4',
     sounds: [
-      { name: 'Trafic', src: 'sounds/loop1.mp3' },
-      { name: 'Wind',  src: 'sounds/snare.mp3' },
-      { name: 'Music',    src: 'sounds/hat.mp3'   }
+      { name: 'Trafic', src: 'sounds/trafic.wav'},
+      { name: 'Wind',  src: 'sounds/wind.wav'},
+      { name: 'Music',    src: 'sounds/music.mp3'}
     ]
   }
 ];
@@ -61,7 +61,7 @@ addInput.addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
   const url = URL.createObjectURL(file);
-  const name = file.name;
+  const name = "Sound nº" + (group.sounds.length + 1);
   group.sounds.push({ name, src: url });
   buildSoundItems();
 });
