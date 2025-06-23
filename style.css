@@ -109,6 +109,13 @@ canvas { width: 100%; display: block; }
   outline-offset: -10px;
 }
 
+.no-tracks-msg {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 /* Painel das tracks */
 .tracks-panel {
   width: 100%;

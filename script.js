@@ -26,6 +26,7 @@ const soundList    = document.getElementById('sound-list');
 const addBtn       = document.getElementById('add-sound-btn');
 const addInput     = document.getElementById('add-sound-input');
 const tracksPanel  = document.getElementById('tracks');
+const noTracksMsg = document.getElementById('no-tracks-msg');
 
 let activeTracks = [];
 
@@ -127,9 +128,12 @@ function addTrack({ src, name }) {
     videoEl.removeEventListener('seeked', onSeek);
     div.remove();
     activeTracks = activeTracks.filter(t => t.audio !== audio);
+    updateNoTracksMsg();    // atualiza depois de remover
   });
 
   activeTracks.push({ audio, onPlay, onPause, onSeek });
+  // após criar a track, atualiza a mensagem
+  updateNoTracksMsg();
 }
 
 // Desenha o vídeo no canvas em loop
@@ -158,5 +162,16 @@ restartBtn.addEventListener('click', () => {
   });
 });
 
+// atualiza visibilidade da mensagem
+function updateNoTracksMsg() {
+  if (activeTracks.length === 0) {
+    noTracksMsg.style.display = 'block';
+  } else {
+    noTracksMsg.style.display = 'none';
+  }
+}
+
 // Inicializa
 buildSoundItems();
+updateNoTracksMsg();
+;
