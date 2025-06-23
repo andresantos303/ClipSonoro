@@ -144,5 +144,19 @@ function drawLoop() {
   requestAnimationFrame(drawLoop);
 }
 
+// --- BOTÃO RESTART ---
+const restartBtn = document.getElementById('restart-btn');
+restartBtn.addEventListener('click', () => {
+  // volta o vídeo ao início e toca
+  videoEl.currentTime = 0;
+  videoEl.play();
+
+  // para cada track ativa, reseta e toca em sincronia
+  activeTracks.forEach(t => {
+    t.audio.currentTime = 0;
+    t.audio.play();
+  });
+});
+
 // Inicializa
 buildSoundItems();

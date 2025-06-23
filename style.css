@@ -180,6 +180,28 @@ canvas { width: 100%; display: block; }
   background: #c0392b;
 }
 
+.controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#restart-btn {
+  background: var(--highlight);
+  border: none;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  font-size: .9rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  transition: background .2s ease, transform .2s ease;
+}
+#restart-btn:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .sound-panel h2 { font-size: 1.5rem; }
